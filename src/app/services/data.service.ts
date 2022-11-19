@@ -42,4 +42,8 @@ export class DataService {
       null,
       { headers: this.composeHeaders() })
   }
+
+  create(data: any) {
+    return this.httpClient.post(`${this.url}/accounts`, data);
+  }
 }
