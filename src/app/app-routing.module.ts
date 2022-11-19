@@ -15,11 +15,18 @@ const routes: Routes = [
   { path: 'signup', component: SignUpPageComponent },
   {
     path: '',
-    canActivate: [AuthenticationService],
     component: BasePageComponent,
     children: [
-      { path: '', component: ProductsPageComponent },
-      { path: 'cart', component: CartPageComponent }
+      {
+        path: '',
+        component: ProductsPageComponent,
+        canActivate: [AuthenticationService]
+      },
+      {
+        path: 'cart',
+        component: CartPageComponent,
+        canActivate: [AuthenticationService]
+      }
     ]
   },
   {
