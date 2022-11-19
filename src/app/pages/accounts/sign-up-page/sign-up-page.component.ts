@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -61,12 +62,14 @@ export class SignUpPageComponent implements OnInit {
     this.busy = true;
     this.dataService
       .create(this.form.value)
-      .pipe((err: any) => {
-        console.error(err);
-        this.busy = false;
-        this.toastr.error(err);
-        return err;
-      })
+      .pipe(
+        catchError((err: any) => {
+          console.error(err);
+          this.busy = false;
+          this.toastr.error(err);
+          return err;
+        })
+      )
       .subscribe((data: any) => {
         this.busy = false;
         this.toastr.success(data.message, 'Bem-vindo!');
