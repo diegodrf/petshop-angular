@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,11 +38,18 @@ import { AuthenticationService } from './services/authentication.service';
     LoadingComponent
   ],
   imports: [
-    AppRoutingModule,
+    // Angular built-in
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot({ showMaskTyped: false })
+
+    // Third-party
+    NgxMaskModule.forRoot({ showMaskTyped: false }),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+
+    // Routing
+    AppRoutingModule
   ],
   providers: [DataService, AuthenticationService],
   bootstrap: [AppComponent]
