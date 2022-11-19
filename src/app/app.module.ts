@@ -16,6 +16,8 @@ import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { BasePageComponent } from './pages/home/base-page/base-page.component';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DataService } from './services/data.service';
+import { AuthenticationService } from './services/authentication.service';
 
 
 
@@ -40,7 +42,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ReactiveFormsModule,
     NgxMaskModule.forRoot({ showMaskTyped: false })
   ],
-  providers: [],
+  providers: [DataService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
