@@ -20,7 +20,6 @@ const routes: Routes = [
       {
         path: '',
         component: ProductsPageComponent,
-        canActivate: [AuthenticationService]
       },
       {
         path: 'cart',
