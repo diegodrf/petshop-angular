@@ -22,6 +22,7 @@ import { DataService } from './services/data.service';
 import { AuthenticationService } from './services/authentication.service';
 import { SecurityService } from './services/security.service';
 import { ProfilePageComponent } from './pages/accounts/profile-page/profile-page.component';
+import { CartService } from './services/cart.service';
 
 
 
@@ -56,6 +57,7 @@ import { ProfilePageComponent } from './pages/accounts/profile-page/profile-page
   ],
   providers: [
     AuthenticationService,
+    CartService,
     DataService,
     SecurityService
   ],
