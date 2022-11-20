@@ -20,6 +20,7 @@ import { ProductCardComponent } from './components/store/product-card/product-ca
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { DataService } from './services/data.service';
 import { AuthenticationService } from './services/authentication.service';
+import { SecurityService } from './services/security.service';
 
 
 
@@ -51,7 +52,11 @@ import { AuthenticationService } from './services/authentication.service';
     // Routing
     AppRoutingModule
   ],
-  providers: [DataService, AuthenticationService],
+  providers: [
+    AuthenticationService,
+    DataService,
+    SecurityService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
