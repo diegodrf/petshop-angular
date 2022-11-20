@@ -21,6 +21,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { DataService } from './services/data.service';
 import { AuthenticationService } from './services/authentication.service';
 import { SecurityService } from './services/security.service';
+import { ProfilePageComponent } from './pages/accounts/profile-page/profile-page.component';
 
 
 
@@ -36,7 +37,8 @@ import { SecurityService } from './services/security.service';
     CartPageComponent,
     BasePageComponent,
     ProductCardComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProfilePageComponent
   ],
   imports: [
     // Angular built-in
