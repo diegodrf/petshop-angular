@@ -56,10 +56,10 @@ export class DataService {
   }
 
   getProfile() {
-    return this.httpClient.get(`${url}/accounts`, { headers: this.composeHeaders() })
+    return this.httpClient.get(`${this.url}/accounts`, { headers: this.composeHeaders() })
   }
 
   updateProfile(data: any) {
-    return this.httpClient.put(`${url}/accounts`, { headers: this.composeHeaders() })
+    return this.httpClient.put(`${this.url}/accounts`, { headers: this.composeHeaders() })
   }
 }
