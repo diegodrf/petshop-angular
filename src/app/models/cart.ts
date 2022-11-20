@@ -22,4 +22,10 @@ export class Cart {
     public getAllItems(): CartItem[] {
         return this.items;
     }
+
+    public totalPrice(): number {
+        let total = 0;
+        this.items.map(x => total += x.price);
+        return total;
+    }
 }
