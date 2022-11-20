@@ -46,7 +46,7 @@ import { AuthenticationService } from './services/authentication.service';
     // Third-party
     NgxMaskModule.forRoot({ showMaskTyped: false }),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ progressBar: true }),
 
     // Routing
     AppRoutingModule
