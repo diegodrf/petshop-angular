@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
+import { SecurityService } from './security.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,14 @@ export class DataService {
 
   private url: string = 'http://localhost:3001';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private securityService: SecurityService
+  ) { }
 
   private composeHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-    let token = localStorage.getItem('petshop.token');
+    let token = this.securityService.getToken();
     if (token != null) {
       headers.set('Authorization', `Bearer ${token}`);
     }
@@ -49,5 +53,13 @@ export class DataService {
 
   resetPassword(data: any) {
     return this.httpClient.post(`${this.url}/accounts/reset-password`, data);
+  }
+
+  getProfile() {
+    return this.httpClient.get(`${url}/accounts`, { headers: this.composeHeaders() })
+  }
+
+  updateProfile(data: any) {
+    return this.httpClient.put(`${url}/accounts`, { headers: this.composeHeaders() })
   }
 }
