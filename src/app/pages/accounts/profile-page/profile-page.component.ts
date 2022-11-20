@@ -35,7 +35,11 @@ export class ProfilePageComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {
-
+    this.form = fb.group({
+      name: this.nameControl,
+      document: this.documentControl,
+      email: this.emailControl
+    })
   }
 
   ngOnInit(): void {
@@ -57,6 +61,7 @@ export class ProfilePageComponent implements OnInit {
           this.form.controls['name'].setValue(data.name);
           this.form.controls['document'].setValue(data.document);
           this.form.controls['email'].setValue(data.email);
+          this.busy = false;
         }
       )
   }
