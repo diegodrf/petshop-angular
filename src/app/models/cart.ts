@@ -19,7 +19,7 @@ export class Cart {
         return item[0];
     }
 
-    public getAllItems(): CartItem[] {
+    public getAllItems(): Array<CartItem> {
         return this.items;
     }
 
@@ -27,5 +27,12 @@ export class Cart {
         let total = 0;
         this.items.map(x => total += x.price);
         return total;
+    }
+
+    public removeItem(item: CartItem): void {
+        let index = this.items.indexOf(item);
+        if (index) {
+            this.items.splice(index, 1);
+        }
     }
 }
