@@ -35,4 +35,8 @@ export class Cart {
             this.items.splice(index, 1);
         }
     }
+
+    public isEmpty(): boolean {
+        return this.items.length == 0;
+    }
 }
