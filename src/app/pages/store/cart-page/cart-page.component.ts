@@ -24,7 +24,7 @@ export class CartPageComponent implements OnInit {
     this.cart = this.cartService.get();
   }
 
-  public remoteItem(item: CartItem) {
+  public removeItem(item: CartItem) {
     this.cart.removeItem(item);
     this.cartService.save(this.cart);
   }
